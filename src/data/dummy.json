@@ -1,0 +1,166 @@
+{
+  "user": {
+    "id": "1",
+    "email": "demo@maglo.com",
+    "name": "Alex Morgan",
+    "avatar": "/images/avatar.png"
+  },
+  "totalBalance": 125750.50,
+  "businessCapital": 89320.00,
+  "currency": "USD",
+  "wallets": [
+    {
+      "id": "1",
+      "name": "Main Account",
+      "balance": 45230.50,
+      "currency": "USD",
+      "type": "bank"
+    },
+    {
+      "id": "2",
+      "name": "Business Card",
+      "balance": 32500.00,
+      "currency": "USD",
+      "type": "credit"
+    },
+    {
+      "id": "3",
+      "name": "Cash",
+      "balance": 8020.00,
+      "currency": "USD",
+      "type": "cash"
+    },
+    {
+      "id": "4",
+      "name": "Crypto Wallet",
+      "balance": 40000.00,
+      "currency": "USD",
+      "type": "crypto"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "1",
+      "type": "income",
+      "amount": 5420.00,
+      "currency": "USD",
+      "description": "Client Payment - Project Alpha",
+      "category": "Business",
+      "date": "2025-09-28T10:30:00Z",
+      "status": "completed"
+    },
+    {
+      "id": "2",
+      "type": "expense",
+      "amount": 1250.00,
+      "currency": "USD",
+      "description": "Office Supplies",
+      "category": "Operations",
+      "date": "2025-09-27T14:20:00Z",
+      "status": "completed"
+    },
+    {
+      "id": "3",
+      "type": "income",
+      "amount": 8900.00,
+      "currency": "USD",
+      "description": "Consulting Services",
+      "category": "Business",
+      "date": "2025-09-26T09:15:00Z",
+      "status": "completed"
+    },
+    {
+      "id": "4",
+      "type": "expense",
+      "amount": 3200.00,
+      "currency": "USD",
+      "description": "Software Licenses",
+      "category": "Technology",
+      "date": "2025-09-25T16:45:00Z",
+      "status": "completed"
+    },
+    {
+      "id": "5",
+      "type": "income",
+      "amount": 12500.00,
+      "currency": "USD",
+      "description": "Monthly Retainer",
+      "category": "Business",
+      "date": "2025-09-24T11:00:00Z",
+      "status": "completed"
+    },
+    {
+      "id": "6",
+      "type": "expense",
+      "amount": 890.00,
+      "currency": "USD",
+      "description": "Marketing Campaign",
+      "category": "Marketing",
+      "date": "2025-09-23T13:30:00Z",
+      "status": "pending"
+    },
+    {
+      "id": "7",
+      "type": "income",
+      "amount": 6750.00,
+      "currency": "USD",
+      "description": "Product Sales",
+      "category": "Sales",
+      "date": "2025-09-22T15:20:00Z",
+      "status": "completed"
+    },
+    {
+      "id": "8",
+      "type": "expense",
+      "amount": 2100.00,
+      "currency": "USD",
+      "description": "Cloud Hosting",
+      "category": "Technology",
+      "date": "2025-09-21T08:00:00Z",
+      "status": "completed"
+    }
+  ],
+  "chartData": [
+    {
+      "date": "2025-09-23",
+      "income": 4200,
+      "expense": 1800
+    },
+    {
+      "date": "2025-09-24",
+      "income": 12500,
+      "expense": 2100
+    },
+    {
+      "date": "2025-09-25",
+      "income": 3500,
+      "expense": 3200
+    },
+    {
+      "date": "2025-09-26",
+      "income": 8900,
+      "expense": 1500
+    },
+    {
+      "date": "2025-09-27",
+      "income": 5600,
+      "expense": 1250
+    },
+    {
+      "date": "2025-09-28",
+      "income": 5420,
+      "expense": 980
+    },
+    {
+      "date": "2025-09-29",
+      "income": 7200,
+      "expense": 2300
+    },
+    {
+      "date": "2025-09-30",
+      "income": 9100,
+      "expense": 1650
+    }
+  ]
+}
+
