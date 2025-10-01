@@ -17,6 +17,7 @@ export default function DashboardPage() {
   const router = useRouter();
   const { isAuthenticated } = useAuth();
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -30,15 +31,22 @@ export default function DashboardPage() {
 
   return (
     <div className="flex min-h-screen bg-gray-50">
-      <Sidebar onCollapseChange={setSidebarCollapsed} />
+      <Sidebar 
+        onCollapseChange={setSidebarCollapsed}
+        isMobileOpen={isMobileMenuOpen}
+        onMobileClose={() => setIsMobileMenuOpen(false)}
+      />
 
-      <div className={`flex-1 flex flex-col transition-all duration-300 ${sidebarCollapsed ? 'ml-20' : 'ml-64'}`}>
-        <Header title="Dashboard" />
+      <div className={`flex-1 flex flex-col transition-all duration-300 ${sidebarCollapsed ? 'lg:ml-20' : 'lg:ml-64'}`}>
+        <Header 
+          title="Dashboard"
+          onMenuClick={() => setIsMobileMenuOpen(true)}
+        />
 
-        <div className="flex flex-1 overflow-hidden">
-          <main className="flex-1 overflow-y-auto p-8 bg-white">
+        <div className="flex flex-col xl:flex-row flex-1 overflow-auto">
+          <main className="flex-1 overflow-y-auto p-4 md:p-8 bg-white">
             <div className="space-y-6">
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <Card className="p-4 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
                   <div className="flex items-start justify-between mb-3">
                     <div className="w-10 h-10 rounded-full bg-[#C5E866] flex items-center justify-center">
@@ -99,8 +107,8 @@ export default function DashboardPage() {
                   <h2 className="text-base font-semibold">Recent Transaction</h2>
                   <button className="text-sm text-[#5B99EA] hover:underline">View All →</button>
                 </div>
-                {/* Table Headers */}
-                <div className="grid grid-cols-4 gap-4 px-4 pb-2 mb-2 border-b">
+                {/* Table Headers - Hidden on mobile */}
+                <div className="hidden md:grid grid-cols-4 gap-4 px-4 pb-2 mb-2 border-b">
                   <div className="col-span-2">
                     <p className="text-xs font-medium text-gray-400 uppercase">Name/Business</p>
                   </div>
@@ -124,17 +132,17 @@ export default function DashboardPage() {
             </div>
           </main>
 
-          <aside className="w-96 bg-white border-l px-8 py-6 overflow-y-auto">
+          <aside className="w-full xl:w-96 bg-white xl:border-l border-t xl:border-t-0 px-4 md:px-8 py-6">
             <div className="space-y-8">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-semibold">Wallet</h3>
                   <button className="text-2xl text-gray-400 hover:text-gray-600">⋯</button>
                 </div>
-                <div className="relative">
+                <div className="relative max-w-sm xl:max-w-none mx-auto xl:mx-0">
                   <div className="flex flex-col">
                     <CreditCard wallet={(dummyData.wallets as Wallet[])[1]} variant="back" />
-                    <div className="scale-95 -mt-20">
+                    <div className="scale-95 -mt-16 xl:-mt-20">
                       <CreditCard wallet={(dummyData.wallets as Wallet[])[0]} variant="front" />
                     </div>
                   </div>

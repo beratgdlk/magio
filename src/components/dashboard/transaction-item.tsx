@@ -42,30 +42,35 @@ const getTransactionIcon = (description: string) => {
 
 export const TransactionItem = ({ transaction }: TransactionItemProps) => {
   return (
-    <div className="grid grid-cols-4 gap-4 py-3 px-4 hover:bg-gray-50 items-center">
-      {/* Name/Business */}
-      <div className="col-span-2 flex items-center gap-3">
+    <div className="flex md:grid md:grid-cols-4 gap-4 py-3 px-4 hover:bg-gray-50 items-center">
+      {/* Name/Business - Full width on mobile */}
+      <div className="flex-1 md:col-span-2 flex items-center gap-3">
         {getTransactionIcon(transaction.description)}
-        <div>
+        <div className="flex-1">
           <p className="font-medium text-sm text-gray-900">{transaction.description}</p>
-          <p className="text-xs text-gray-500">{transaction.category}</p>
+          <div className="flex items-center gap-2 md:hidden">
+            <p className="text-xs text-gray-500">{transaction.category}</p>
+            <span className="text-xs text-gray-400">•</span>
+            <p className="text-xs text-gray-500">{formatDate(transaction.date)}</p>
+          </div>
+          <p className="hidden md:block text-xs text-gray-500">{transaction.category}</p>
         </div>
       </div>
       
-      {/* Type - empty for now as per design */}
-      <div>
+      {/* Type - Hidden on mobile, shown on desktop */}
+      <div className="hidden md:block">
         <p className="text-sm text-gray-600">{transaction.category}</p>
       </div>
       
-      {/* Amount */}
-      <div className="text-right">
+      {/* Amount - Always visible */}
+      <div className="text-right md:col-start-auto">
         <p className="font-semibold text-sm text-gray-900">
           ${transaction.amount.toFixed(2)}
         </p>
       </div>
       
-      {/* Date */}
-      <div className="text-right col-start-4">
+      {/* Date - Hidden on mobile, shown in name section instead */}
+      <div className="hidden md:block text-right">
         <p className="text-xs text-gray-500">{formatDate(transaction.date)}</p>
       </div>
     </div>

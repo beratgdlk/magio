@@ -3,19 +3,31 @@
 import { Avatar } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/auth-context';
-import { Bell, ChevronDown, Search } from 'lucide-react';
+import { Bell, ChevronDown, Menu, Search } from 'lucide-react';
 
 interface HeaderProps {
   title: string;
+  onMenuClick?: () => void;
 }
 
-export const Header = ({ title }: HeaderProps) => {
+export const Header = ({ title, onMenuClick }: HeaderProps) => {
   const { user } = useAuth();
 
   return (
-    <header className="bg-white border-b px-8 py-4">
+    <header className="bg-white border-b px-4 md:px-8 py-4">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">{title}</h1>
+        <div className="flex items-center gap-4">
+          {/* Mobile Menu Button */}
+          <Button 
+            variant="ghost" 
+            size="icon"
+            className="lg:hidden"
+            onClick={onMenuClick}
+          >
+            <Menu className="h-6 w-6" />
+          </Button>
+          <h1 className="text-xl md:text-2xl font-bold">{title}</h1>
+        </div>
 
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon">
