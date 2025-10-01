@@ -161,6 +161,43 @@
       "income": 9100,
       "expense": 1650
     }
+  ],
+  "scheduledTransfers": [
+    {
+      "id": "1",
+      "name": "Saleh Ahmed",
+      "date": "April 28, 2022 at 11:00",
+      "amount": -435.00,
+      "avatar": "https://i.pravatar.cc/150?img=15"
+    },
+    {
+      "id": "2",
+      "name": "Delowar Hossain",
+      "date": "April 25, 2022 at 11:00",
+      "amount": -132.00,
+      "avatar": "https://i.pravatar.cc/150?img=8"
+    },
+    {
+      "id": "3",
+      "name": "Moinul Hasan Nayem",
+      "date": "April 25, 2022 at 11:00",
+      "amount": -826.00,
+      "avatar": "https://i.pravatar.cc/150?img=13"
+    },
+    {
+      "id": "4",
+      "name": "Dr. Jubed Ahmed",
+      "date": "April 19, 2022 at 11:00",
+      "amount": -435.00,
+      "avatar": "https://i.pravatar.cc/150?img=7"
+    },
+    {
+      "id": "5",
+      "name": "AR Jakir Alp",
+      "date": "April 14, 2022 at 11:00",
+      "amount": -228.00,
+      "avatar": "https://i.pravatar.cc/150?img=11"
+    }
   ]
 }
 

@@ -1,6 +1,5 @@
 "use client";
 
-import { Card } from '@/components/ui/card';
 import { formatCurrency, formatDate } from '@/lib/formatters';
 import { ChartData } from '@/types';
 import {
@@ -45,14 +44,8 @@ export const FinanceChart = ({ data, currency = 'USD' }: FinanceChartProps) => {
   };
 
   return (
-    <Card className="p-6">
-      <div className="mb-4">
-        <h3 className="text-lg font-semibold">Financial Overview</h3>
-        <p className="text-sm text-muted-foreground">
-          Daily income and expense trends
-        </p>
-      </div>
-      <ResponsiveContainer width="100%" height={300}>
+    <div>
+      <ResponsiveContainer width="100%" height={280}>
         <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis
@@ -88,7 +81,7 @@ export const FinanceChart = ({ data, currency = 'USD' }: FinanceChartProps) => {
           />
         </LineChart>
       </ResponsiveContainer>
-    </Card>
+    </div>
   );
 };
 
