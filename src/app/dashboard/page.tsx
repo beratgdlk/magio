@@ -87,11 +87,11 @@ export default function DashboardPage() {
                   <h2 className="text-base font-semibold">Working Capital</h2>
                   <div className="flex items-center gap-4 text-sm">
                     <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#C8EE44' }}></div>
                       <span>Income</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#29A073' }}></div>
                       <span>Expenses</span>
                     </div>
                     <select className="border rounded px-3 py-1 text-sm">
