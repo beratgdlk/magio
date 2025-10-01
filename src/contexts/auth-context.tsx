@@ -25,8 +25,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const mockUser: User = {
       id: '1',
       email: email,
-      name: 'Alex Morgan',
-      avatar: '/images/avatar.png'
+      name: 'Berat Güdelek',
+      avatar: 'https://i.pravatar.cc/150?img=12'
     };
     
     setUser(mockUser);
