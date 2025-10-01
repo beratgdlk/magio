@@ -76,7 +76,7 @@ export const SignInForm = () => {
       <Button
         type="submit"
         disabled={isLoading}
-        className="w-full"
+        className="w-full bg-[#C5E866] hover:bg-[#b5d656] text-[#1B212D]"
       >
         {isLoading ? (
           <span className="flex items-center gap-2">
