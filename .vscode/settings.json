@@ -56,7 +56,8 @@
     "webp",
     "Glassmorphism",
     "glassmorphism",
-    "signup"
+    "signup",
+    "onblur"
   ],
   "cSpell.enabled": true,
   "cSpell.language": "en,tr",
