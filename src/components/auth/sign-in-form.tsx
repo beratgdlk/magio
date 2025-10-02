@@ -5,32 +5,63 @@ import { Input } from '@/components/ui/input';
 import { useAuth } from '@/contexts/auth-context';
 import { validateEmail, validatePassword } from '@/lib/validators';
 import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
-
-interface SignInFormData {
-  email: string;
-  password: string;
-}
+import { useState, FormEvent } from 'react';
 
 export const SignInForm = () => {
   const router = useRouter();
   const { login, isLoading } = useAuth();
   
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<SignInFormData>({
-    mode: 'onBlur', // Validate on blur for better UX
-    defaultValues: {
-      email: '',
-      password: '',
-    },
-  });
+  // useState for form state management (as per case requirements)
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
 
-  const onSubmit = async (data: SignInFormData) => {
+  // Validate on blur
+  const handleEmailBlur = () => {
+    if (!email) {
+      setErrors(prev => ({ ...prev, email: 'Email is required' }));
+    } else if (!validateEmail(email)) {
+      setErrors(prev => ({ ...prev, email: 'Invalid email format' }));
+    } else {
+      setErrors(prev => ({ ...prev, email: undefined }));
+    }
+  };
+
+  const handlePasswordBlur = () => {
+    if (!password) {
+      setErrors(prev => ({ ...prev, password: 'Password is required' }));
+    } else if (!validatePassword(password)) {
+      setErrors(prev => ({ ...prev, password: 'Password must be at least 6 characters' }));
+    } else {
+      setErrors(prev => ({ ...prev, password: undefined }));
+    }
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Validate before submit
+    const newErrors: { email?: string; password?: string } = {};
+    
+    if (!email) {
+      newErrors.email = 'Email is required';
+    } else if (!validateEmail(email)) {
+      newErrors.email = 'Invalid email format';
+    }
+
+    if (!password) {
+      newErrors.password = 'Password is required';
+    } else if (!validatePassword(password)) {
+      newErrors.password = 'Password must be at least 6 characters';
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     try {
-      await login(data.email, data.password);
+      await login(email, password);
       router.push('/dashboard');
     } catch (error) {
       console.error('Login failed:', error);
@@ -38,7 +69,7 @@ export const SignInForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-2">
         <label htmlFor="email" className="text-sm font-medium">
           Email
@@ -47,16 +78,14 @@ export const SignInForm = () => {
           id="email"
           type="email"
           placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          onBlur={handleEmailBlur}
           disabled={isLoading}
           className={errors.email ? 'border-red-500' : ''}
-          {...register('email', {
-            required: 'Email is required',
-            validate: (value) => 
-              validateEmail(value) || 'Invalid email format',
-          })}
         />
         {errors.email && (
-          <p className="text-sm text-red-500">{errors.email.message}</p>
+          <p className="text-sm text-red-500">{errors.email}</p>
         )}
       </div>
 
@@ -68,16 +97,14 @@ export const SignInForm = () => {
           id="password"
           type="password"
           placeholder="Enter your password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          onBlur={handlePasswordBlur}
           disabled={isLoading}
           className={errors.password ? 'border-red-500' : ''}
-          {...register('password', {
-            required: 'Password is required',
-            validate: (value) =>
-              validatePassword(value) || 'Password must be at least 6 characters',
-          })}
         />
         {errors.password && (
-          <p className="text-sm text-red-500">{errors.password.message}</p>
+          <p className="text-sm text-red-500">{errors.password}</p>
         )}
       </div>
 
