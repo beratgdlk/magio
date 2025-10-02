@@ -15,11 +15,11 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 const menuItems = [
-  { icon: DashboardIcon, label: 'Dashboard', href: '/dashboard', active: true },
-  { icon: TransactionsIcon, label: 'Transactions', href: '#', active: false },
-  { icon: InvoicesIcon, label: 'Invoices', href: '#', active: false },
-  { icon: WalletsIcon, label: 'My Wallets', href: '#', active: false },
-  { icon: SettingsIcon, label: 'Settings', href: '#', active: false },
+  { icon: DashboardIcon, label: 'Dashboard', href: '/dashboard' },
+  { icon: TransactionsIcon, label: 'Transactions', href: '#' },
+  { icon: InvoicesIcon, label: 'Invoices', href: '#' },
+  { icon: WalletsIcon, label: 'My Wallets', href: '#' },
+  { icon: SettingsIcon, label: 'Settings', href: '#' },
 ];
 
 interface SidebarProps {
@@ -32,6 +32,7 @@ export const Sidebar = ({ onCollapseChange, isMobileOpen = false, onMobileClose 
   const router = useRouter();
   const { logout } = useAuth();
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [activeMenu, setActiveMenu] = useState('Dashboard');
 
   const handleToggle = () => {
     const newState = !isCollapsed;
@@ -42,6 +43,14 @@ export const Sidebar = ({ onCollapseChange, isMobileOpen = false, onMobileClose 
   const handleLogout = () => {
     logout();
     router.push('/sign-in');
+  };
+
+  const handleMenuClick = (label: string) => {
+    setActiveMenu(label);
+    // Close mobile menu when clicking menu item
+    if (window.innerWidth < 1024) {
+      onMobileClose?.();
+    }
   };
 
   return (
@@ -98,17 +107,13 @@ export const Sidebar = ({ onCollapseChange, isMobileOpen = false, onMobileClose 
       <nav className="flex-1 px-4">
         {menuItems.map((item) => {
           const IconComponent = item.icon;
+          const isActive = activeMenu === item.label;
           return (
             <button
               key={item.label}
-              onClick={() => {
-                // Close mobile menu when clicking menu item
-                if (window.innerWidth < 1024) {
-                  onMobileClose?.();
-                }
-              }}
+              onClick={() => handleMenuClick(item.label)}
               className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'} px-4 py-3 rounded-lg mb-1 transition-colors cursor-pointer ${
-                item.active
+                isActive
                   ? 'bg-[#C5E866] text-[#1B212D] font-medium'
                   : 'text-[#929EAE] hover:bg-gray-100'
               }`}
