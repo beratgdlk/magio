@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { useAuth } from '@/contexts/auth-context';
 import { validateEmail, validatePassword } from '@/lib/validators';
 import { useRouter } from 'next/navigation';
-import { useState, FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 
 export const SignInForm = () => {
   const router = useRouter();
