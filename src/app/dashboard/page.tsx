@@ -46,46 +46,46 @@ export default function DashboardPage() {
         <div className="flex flex-col xl:flex-row flex-1 overflow-auto">
           <main className="flex-1 overflow-y-auto p-4 md:p-8 bg-white">
             <div className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Card className="p-4 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="w-10 h-10 rounded-full bg-[#C5E866] flex items-center justify-center">
-                      <svg className="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                      </svg>
-                    </div>
+              {/* Balance Cards - Figma Style */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Total Balance - Dark */}
+                <Card className="p-6 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
+                  <div className="w-12 h-12 rounded-2xl bg-[#C5E866] flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                    </svg>
                   </div>
-                  <p className="text-xs opacity-70 mb-1">Total balance</p>
-                  <p className="text-2xl font-bold">${dummyData.totalBalance.toLocaleString()}</p>
+                  <p className="text-sm opacity-70 mb-2">Total balance</p>
+                  <p className="text-3xl font-bold">${dummyData.totalBalance.toLocaleString()}</p>
                 </Card>
-                <Card className="p-4">
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
-                      <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                      </svg>
-                    </div>
+
+                {/* Total Spending */}
+                <Card className="p-6 bg-white border border-gray-200">
+                  <div className="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
                   </div>
-                  <p className="text-xs text-muted-foreground mb-1">Total spending</p>
-                  <p className="text-2xl font-bold">$250.80</p>
+                  <p className="text-sm text-gray-500 mb-2">Total spending</p>
+                  <p className="text-3xl font-bold text-gray-900">$250.80</p>
                 </Card>
-                <Card className="p-4">
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
-                      <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
+
+                {/* Total Saved */}
+                <Card className="p-6 bg-white border border-gray-200">
+                  <div className="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                   </div>
-                  <p className="text-xs text-muted-foreground mb-1">Total saved</p>
-                  <p className="text-2xl font-bold">$550.25</p>
+                  <p className="text-sm text-gray-500 mb-2">Total saved</p>
+                  <p className="text-3xl font-bold text-gray-900">$550.25</p>
                 </Card>
               </div>
 
-              <Card className="p-5">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-base font-semibold">Working Capital</h2>
-                  <div className="flex items-center gap-4 text-sm">
+              <Card className="p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-lg font-bold">Working Capital</h2>
+                  <div className="flex items-center gap-4 text-sm text-gray-600">
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#C8EE44' }}></div>
                       <span>Income</span>

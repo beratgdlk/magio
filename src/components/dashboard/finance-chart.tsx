@@ -3,13 +3,13 @@
 import { formatCurrency, formatDate } from '@/lib/formatters';
 import { ChartData } from '@/types';
 import {
-  CartesianGrid,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
+    CartesianGrid,
+    Line,
+    LineChart,
+    ResponsiveContainer,
+    Tooltip,
+    XAxis,
+    YAxis,
 } from 'recharts';
 
 interface FinanceChartProps {
@@ -44,37 +44,46 @@ export const FinanceChart = ({ data, currency = 'USD' }: FinanceChartProps) => {
 
   return (
     <div>
-      <ResponsiveContainer width="100%" height={280}>
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+      <ResponsiveContainer width="100%" height={300}>
+        <LineChart data={data} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" vertical={false} />
           <XAxis
             dataKey="date"
-            tickFormatter={(value) => formatDate(value, 'en-US', { month: 'short', day: 'numeric' })}
-            stroke="#888888"
-            fontSize={12}
+            tickFormatter={(value) => {
+              const date = new Date(value);
+              return `${date.toLocaleDateString('en-US', { month: 'short' })} ${date.getDate()}`;
+            }}
+            stroke="#9CA3AF"
+            fontSize={11}
+            axisLine={false}
+            tickLine={false}
           />
           <YAxis
-            tickFormatter={(value) => `$${value / 1000}k`}
-            stroke="#888888"
-            fontSize={12}
+            tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
+            stroke="#9CA3AF"
+            fontSize={11}
+            axisLine={false}
+            tickLine={false}
+            domain={[0, 14000]}
+            ticks={[0, 4000, 6000, 10000, 14000]}
           />
           <Tooltip content={<CustomTooltip />} />
           <Line
             type="monotone"
             dataKey="income"
             stroke="#C8EE44"
-            strokeWidth={2}
-            dot={{ fill: '#C8EE44', r: 4 }}
-            activeDot={{ r: 6 }}
+            strokeWidth={3}
+            dot={{ fill: '#C8EE44', r: 5 }}
+            activeDot={{ r: 7 }}
             name="Income"
           />
           <Line
             type="monotone"
             dataKey="expense"
-            stroke="#29A073" 
-            strokeWidth={2}
-            dot={{ fill: '#29A073', r: 4 }}
-            activeDot={{ r: 6 }}
+            stroke="#29A073"
+            strokeWidth={3}
+            dot={{ fill: '#29A073', r: 5 }}
+            activeDot={{ r: 7 }}
             name="Expense"
           />
         </LineChart>
