@@ -1,6 +1,6 @@
 import { SignInForm } from '@/components/auth/sign-in-form';
 import { Button } from '@/components/ui/button';
-import { GoogleIcon } from '@/components/ui/google-icon';
+import { GoogleIcon } from '@/components/icons';
 import { Logo } from '@/components/ui/logo';
 import Image from 'next/image';
 import Link from 'next/link';
