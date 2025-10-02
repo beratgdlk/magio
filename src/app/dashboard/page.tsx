@@ -125,19 +125,19 @@ export default function DashboardPage() {
                   <h2 className="text-base font-semibold">Recent Transaction</h2>
                   <button className="text-sm text-[#5B99EA] hover:underline">View All →</button>
                 </div>
-                {/* Table Headers - Hidden on mobile */}
-                <div className="hidden md:grid grid-cols-4 gap-4 px-4 pb-2 mb-2 border-b">
-                  <div className="col-span-2">
-                    <p className="text-xs font-medium text-gray-400 uppercase">Name/Business</p>
+                {/* Table Headers - Figma Style */}
+                <div className="hidden md:grid grid-cols-12 gap-4 pb-3 mb-2 border-b border-gray-200">
+                  <div className="col-span-5">
+                    <p className="text-xs font-medium text-gray-400 uppercase tracking-wider">Name/Business</p>
                   </div>
-                  <div>
-                    <p className="text-xs font-medium text-gray-400 uppercase">Type</p>
+                  <div className="col-span-2 text-center">
+                    <p className="text-xs font-medium text-gray-400 uppercase tracking-wider">Date</p>
                   </div>
-                  <div className="text-right">
-                    <p className="text-xs font-medium text-gray-400 uppercase">Amount</p>
+                  <div className="col-span-3 text-center">
+                    <p className="text-xs font-medium text-gray-400 uppercase tracking-wider">Type</p>
                   </div>
-                  <div className="text-right">
-                    <p className="text-xs font-medium text-gray-400 uppercase">Date</p>
+                  <div className="col-span-2 text-right">
+                    <p className="text-xs font-medium text-gray-400 uppercase tracking-wider">Amount</p>
                   </div>
                 </div>
                 {/* Transactions */}

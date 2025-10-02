@@ -11,6 +11,7 @@ export interface Transaction {
   amount: number;
   currency: string;
   description: string;
+  company?: string;
   category: string;
   date: string;
   status: 'completed' | 'pending' | 'failed';

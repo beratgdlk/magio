@@ -41,82 +41,35 @@
   "transactions": [
     {
       "id": "1",
-      "type": "income",
-      "amount": 5420.00,
+      "type": "expense",
+      "amount": 420.84,
       "currency": "USD",
-      "description": "Client Payment - Project Alpha",
-      "category": "Business",
-      "date": "2025-09-28T10:30:00Z",
+      "description": "iPhone 13 Pro MAX",
+      "company": "Apple, Inc",
+      "category": "Mobile",
+      "date": "2022-04-14T10:30:00Z",
       "status": "completed"
     },
     {
       "id": "2",
       "type": "expense",
-      "amount": 1250.00,
+      "amount": 100.00,
       "currency": "USD",
-      "description": "Office Supplies",
-      "category": "Operations",
-      "date": "2025-09-27T14:20:00Z",
+      "description": "Netflix Subscription",
+      "company": "Netflix",
+      "category": "Entertainment",
+      "date": "2022-04-05T14:20:00Z",
       "status": "completed"
     },
     {
       "id": "3",
-      "type": "income",
-      "amount": 8900.00,
-      "currency": "USD",
-      "description": "Consulting Services",
-      "category": "Business",
-      "date": "2025-09-26T09:15:00Z",
-      "status": "completed"
-    },
-    {
-      "id": "4",
       "type": "expense",
-      "amount": 3200.00,
+      "amount": 244.20,
       "currency": "USD",
-      "description": "Software Licenses",
-      "category": "Technology",
-      "date": "2025-09-25T16:45:00Z",
-      "status": "completed"
-    },
-    {
-      "id": "5",
-      "type": "income",
-      "amount": 12500.00,
-      "currency": "USD",
-      "description": "Monthly Retainer",
-      "category": "Business",
-      "date": "2025-09-24T11:00:00Z",
-      "status": "completed"
-    },
-    {
-      "id": "6",
-      "type": "expense",
-      "amount": 890.00,
-      "currency": "USD",
-      "description": "Marketing Campaign",
-      "category": "Marketing",
-      "date": "2025-09-23T13:30:00Z",
-      "status": "pending"
-    },
-    {
-      "id": "7",
-      "type": "income",
-      "amount": 6750.00,
-      "currency": "USD",
-      "description": "Product Sales",
-      "category": "Sales",
-      "date": "2025-09-22T15:20:00Z",
-      "status": "completed"
-    },
-    {
-      "id": "8",
-      "type": "expense",
-      "amount": 2100.00,
-      "currency": "USD",
-      "description": "Cloud Hosting",
-      "category": "Technology",
-      "date": "2025-09-21T08:00:00Z",
+      "description": "Figma Subscription",
+      "company": "Figma, Inc",
+      "category": "Software",
+      "date": "2022-04-02T09:15:00Z",
       "status": "completed"
     }
   ],

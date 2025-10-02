@@ -42,36 +42,33 @@ const getTransactionIcon = (description: string) => {
 
 export const TransactionItem = ({ transaction }: TransactionItemProps) => {
   return (
-    <div className="flex md:grid md:grid-cols-4 gap-4 py-3 px-4 hover:bg-gray-50 items-center">
-      {/* Name/Business - Full width on mobile */}
-      <div className="flex-1 md:col-span-2 flex items-center gap-3">
-        {getTransactionIcon(transaction.description)}
-        <div className="flex-1">
-          <p className="font-medium text-sm text-gray-900">{transaction.description}</p>
-          <div className="flex items-center gap-2 md:hidden">
-            <p className="text-xs text-gray-500">{transaction.category}</p>
-            <span className="text-xs text-gray-400">•</span>
-            <p className="text-xs text-gray-500">{formatDate(transaction.date)}</p>
+    <div className="py-4 border-b last:border-b-0 hover:bg-gray-50/50 transition-colors">
+      <div className="grid grid-cols-12 gap-4 items-center">
+        {/* Name/Business - 5 columns */}
+        <div className="col-span-12 md:col-span-5 flex items-center gap-3">
+          {getTransactionIcon(transaction.description)}
+          <div>
+            <p className="font-medium text-sm text-gray-900">{transaction.description}</p>
+            <p className="text-xs text-gray-400">{transaction.company || transaction.category}</p>
           </div>
-          <p className="hidden md:block text-xs text-gray-500">{transaction.category}</p>
         </div>
-      </div>
-      
-      {/* Type - Hidden on mobile, shown on desktop */}
-      <div className="hidden md:block">
-        <p className="text-sm text-gray-600">{transaction.category}</p>
-      </div>
-      
-      {/* Amount - Always visible */}
-      <div className="text-right md:col-start-auto">
-        <p className="font-semibold text-sm text-gray-900">
-          ${transaction.amount.toFixed(2)}
-        </p>
-      </div>
-      
-      {/* Date - Hidden on mobile, shown in name section instead */}
-      <div className="hidden md:block text-right">
-        <p className="text-xs text-gray-500">{formatDate(transaction.date)}</p>
+        
+        {/* Date - 2 columns, shown below name on mobile */}
+        <div className="col-span-6 md:col-span-2 md:text-center order-3 md:order-2">
+          <p className="text-xs text-gray-400">{formatDate(transaction.date)}</p>
+        </div>
+        
+        {/* Type - 3 columns */}
+        <div className="hidden md:block md:col-span-3 md:text-center order-2 md:order-3">
+          <p className="text-sm text-gray-600">{transaction.category}</p>
+        </div>
+        
+        {/* Amount - 2 columns */}
+        <div className="col-span-6 md:col-span-2 text-right order-2 md:order-4">
+          <p className="font-semibold text-base text-gray-900">
+            ${transaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+          </p>
+        </div>
       </div>
     </div>
   );
