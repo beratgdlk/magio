@@ -82,18 +82,20 @@ export const Sidebar = ({ onCollapseChange, isMobileOpen = false, onMobileClose 
   return (
     <>
       {/* Mobile Overlay */}
-      {isMobileOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-          onClick={onMobileClose}
-        />
-      )}
+      <div 
+        className={`fixed inset-0 bg-black/50 z-40 lg:hidden transition-opacity duration-300 ${
+          isMobileOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={onMobileClose}
+      />
       
       {/* Sidebar */}
       <aside className={`
         ${isCollapsed ? 'w-20' : 'w-64'} 
-        bg-gray-50 border-r h-screen flex-col transition-all duration-300 fixed z-50
-        ${isMobileOpen ? 'flex' : 'hidden lg:flex'}
+        bg-gray-50 border-r h-screen flex flex-col fixed z-50
+        transition-all duration-300 ease-in-out
+        lg:translate-x-0
+        ${isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
       <div className="p-6 flex items-center justify-between">
         {/* Mobile Logo (no collapse) */}
