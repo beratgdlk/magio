@@ -6,7 +6,7 @@ export const CreditCard = ({ variant }: CreditCardProps) => {
   // Secondary card (front - frosted glass)
   if (variant === 'front') {
     return (
-      <svg width="100%" height="172" viewBox="0 0 324 172" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+      <svg width="100%" height="140" viewBox="0 0 324 172" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
         {/* Background with subtle gradient */}
         <rect opacity="0.1" width="324" height="172" rx="15" fill="url(#paint0_linear_3210_426)" />
         {/* Backdrop blur via foreignObject to mimic frosted glass */}
@@ -62,7 +62,7 @@ export const CreditCard = ({ variant }: CreditCardProps) => {
 
   // Primary card (back - dark gradient)
   return (
-    <svg width="100%" height="247" viewBox="0 0 354 247" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+    <svg width="100%" height="200" viewBox="0 0 354 247" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
       <rect y="37" width="354" height="210" rx="15" fill="url(#paint0_linear_3210_373)"/>
       <text x="42" y="70" fill="white" fontSize="16" fontWeight="600">Maglo.</text>
       <rect x="102" y="58" width="2" height="20" fill="#FFFFFF" opacity="0.5" />

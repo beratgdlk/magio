@@ -98,7 +98,7 @@ export const Header = ({ title, onMenuClick }: HeaderProps) => {
                   
                   {/* Menu Items */}
                   <button 
-                    className="w-full px-4 py-2.5 text-left text-sm hover:bg-gray-50 transition-colors cursor-pointer flex items-center gap-3"
+                    className="w-full px-4 py-2.5 text-left text-sm hover:bg-[#C5E866]/10 transition-colors cursor-pointer flex items-center gap-3"
                     onClick={() => {
                       console.log('Help clicked');
                       setUserMenuOpen(false);

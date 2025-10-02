@@ -136,7 +136,7 @@ export default function DashboardPage() {
                       <span>Expenses</span>
                     </div>
                     <select 
-                      className="border rounded-md px-3 py-1.5 pr-10 text-sm cursor-pointer hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 transition-colors appearance-none bg-white bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M7%207l3%203%203-3%22%20stroke%3D%22%239ca3af%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25rem] bg-[right_0.5rem_center] bg-no-repeat"
+                      className="border border-gray-300 rounded-md px-3 py-1.5 pr-10 text-sm cursor-pointer hover:border-[#C5E866] focus:outline-none focus:ring-2 focus:ring-[#C5E866]/30 focus:border-[#C5E866] transition-colors appearance-none bg-white bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M7%207l3%203%203-3%22%20stroke%3D%22%239ca3af%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25rem] bg-[right_0.5rem_center] bg-no-repeat"
                       onChange={(e) => console.log('Period changed:', e.target.value)}
                     >
                       <option>Last 7 days</option>
@@ -186,7 +186,7 @@ export default function DashboardPage() {
           <aside className="w-full xl:w-96 bg-white xl:border-l border-t xl:border-t-0 px-4 md:px-8 py-6">
             <div className="space-y-8">
               <div>
-                <div className="flex items-center justify-between mb-4 relative">
+                <div className="flex items-center justify-between mb-0 relative">
                   <h3 className="text-lg font-semibold">Wallet</h3>
                   <div className="relative">
                     <button 
@@ -208,7 +208,7 @@ export default function DashboardPage() {
                         {/* Menu */}
                         <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-20 animate-in fade-in slide-in-from-top-2 duration-200">
                           <button 
-                            className="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors cursor-pointer"
+                            className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-[#C5E866]/10 hover:text-[#1B212D] transition-colors cursor-pointer"
                             onClick={() => {
                               console.log('Add new card');
                               setWalletMenuOpen(false);
@@ -217,7 +217,7 @@ export default function DashboardPage() {
                             Add New Card
                           </button>
                           <button 
-                            className="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors cursor-pointer"
+                            className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-[#C5E866]/10 hover:text-[#1B212D] transition-colors cursor-pointer"
                             onClick={() => {
                               console.log('Manage cards');
                               setWalletMenuOpen(false);
@@ -226,7 +226,7 @@ export default function DashboardPage() {
                             Manage Cards
                           </button>
                           <button 
-                            className="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors cursor-pointer"
+                            className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-[#C5E866]/10 hover:text-[#1B212D] transition-colors cursor-pointer"
                             onClick={() => {
                               console.log('Card settings');
                               setWalletMenuOpen(false);
@@ -251,10 +251,10 @@ export default function DashboardPage() {
                 </div>
                 
                 {/* Card Stack */}
-                <div className="relative max-w-sm xl:max-w-none mx-auto xl:mx-0 cursor-pointer">
+                <div className="relative max-w-md xl:max-w-lg mx-auto xl:mx-0 cursor-pointer -mt-4">
                   <div className="flex flex-col">
                     <CreditCard variant="back" />
-                    <div className="scale-95 -mt-16 xl:-mt-20">
+                    <div className="scale-95 -mt-12 xl:-mt-14">
                       <CreditCard variant="front" />
                     </div>
                   </div>
