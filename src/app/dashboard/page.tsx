@@ -9,7 +9,7 @@ import { TransactionItem } from '@/components/dashboard/transaction-item';
 import { Card } from '@/components/ui/card';
 import { useAuth } from '@/contexts/auth-context';
 import dummyData from '@/data/dummy.json';
-import { Transaction, Wallet } from '@/types';
+import { Transaction } from '@/types';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -159,9 +159,9 @@ export default function DashboardPage() {
                 </div>
                 <div className="relative max-w-sm xl:max-w-none mx-auto xl:mx-0">
                   <div className="flex flex-col">
-                    <CreditCard wallet={(dummyData.wallets as Wallet[])[1]} variant="back" />
+                    <CreditCard variant="back" />
                     <div className="scale-95 -mt-16 xl:-mt-20">
-                      <CreditCard wallet={(dummyData.wallets as Wallet[])[0]} variant="front" />
+                      <CreditCard variant="front" />
                     </div>
                   </div>
                 </div>

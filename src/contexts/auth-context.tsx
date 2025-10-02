@@ -20,16 +20,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = async (email: string, password: string) => {    
     setIsLoading(true);
     
+    // Simulate API call - in production, validate password here
     await new Promise(resolve => setTimeout(resolve, 1500));
     
-    const mockUser: User = {
-      id: '1',
-      email: email,
-      name: 'Berat Güdelek',
-      avatar: 'https://i.pravatar.cc/150?img=12'
-    };
+    // Mock successful authentication
+    if (password) {
+      const mockUser: User = {
+        id: '1',
+        email: email,
+        name: 'Berat Güdelek',
+        avatar: 'https://i.pravatar.cc/150?img=12'
+      };
+      
+      setUser(mockUser);
+    }
     
-    setUser(mockUser);
     setIsLoading(false);
   };
 

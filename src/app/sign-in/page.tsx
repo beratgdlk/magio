@@ -59,7 +59,7 @@ export default function SignInPage() {
 
       <div className="hidden lg:block relative bg-zinc-900">
         <Image
-          src="/images/image-signup.png"
+          src="/images/signup.webp"
           alt="Sign In"
           fill
           className="object-cover"

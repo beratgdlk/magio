@@ -1,4 +1,5 @@
 import { formatCurrency } from '@/lib/formatters';
+import Image from 'next/image';
 
 interface Transfer {
   id: string;
@@ -15,27 +16,29 @@ interface ScheduledTransfersProps {
 export const ScheduledTransfers = ({ transfers }: ScheduledTransfersProps) => {
   return (
     <div>
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-semibold">Scheduled Transfers</h3>
+      <div className="flex items-center justify-between mb-5">  
+        <h3 className="text-base font-semibold">Scheduled Transfers</h3>
         <button className="text-sm text-[#29A073] font-medium hover:underline">View All →</button>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-4">
         {transfers.map((transfer) => (
           <div key={transfer.id} className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img
+              <Image
                 src={transfer.avatar}
                 alt={transfer.name}
-                className="w-10 h-10 rounded-full object-cover"
-              />
-              <div>
-                <p className="font-medium text-sm">{transfer.name}</p>
-                <p className="text-xs text-muted-foreground">{transfer.date}</p>
+                width={44}
+                height={44}
+                className="rounded-full object-cover"
+              />      
+              <div> 
+                <p className="font-semibold text-sm text-gray-900 mb-0.5">{transfer.name}</p>
+                <p className="text-xs text-gray-400">{transfer.date}</p>
               </div>
             </div>
-            <p className="font-semibold text-sm">
-              {formatCurrency(transfer.amount, 'USD')}
+            <p className="font-semibold text-sm text-gray-900">
+              - {formatCurrency(transfer.amount, 'USD')}
             </p>
           </div>
         ))}
