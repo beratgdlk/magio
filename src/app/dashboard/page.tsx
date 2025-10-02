@@ -254,7 +254,7 @@ export default function DashboardPage() {
                 <div className="relative max-w-md xl:max-w-lg mx-auto xl:mx-0 cursor-pointer -mt-4">
                   <div className="flex flex-col">
                     <CreditCard variant="back" />
-                    <div className="scale-95 -mt-12 xl:-mt-14">
+                    <div className="scale-95 -mt-16 xl:-mt-18">
                       <CreditCard variant="front" />
                     </div>
                   </div>
