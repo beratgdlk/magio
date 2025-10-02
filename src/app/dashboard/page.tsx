@@ -120,10 +120,10 @@ export default function DashboardPage() {
                 <FinanceChart data={dummyData.chartData} currency={dummyData.currency} />
               </Card>
 
-              <Card className="p-5">
+              <Card className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-base font-semibold">Recent Transaction</h2>
-                  <button className="text-sm text-[#5B99EA] hover:underline">View All →</button>
+                  <button className="text-sm text-[#29A073] font-medium hover:underline">View All →</button>
                 </div>
                 {/* Table Headers - Figma Style */}
                 <div className="hidden md:grid grid-cols-12 gap-4 pb-3 mb-2 border-b border-gray-200">

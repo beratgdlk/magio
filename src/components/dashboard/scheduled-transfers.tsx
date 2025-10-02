@@ -17,7 +17,7 @@ export const ScheduledTransfers = ({ transfers }: ScheduledTransfersProps) => {
     <div>
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold">Scheduled Transfers</h3>
-        <button className="text-sm text-blue-600 hover:underline">View All →</button>
+        <button className="text-sm text-[#29A073] font-medium hover:underline">View All →</button>
       </div>
 
       <div className="space-y-3">
